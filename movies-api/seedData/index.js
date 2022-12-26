@@ -7,6 +7,8 @@ import movieModel from '../api/movies/movieModel';
 import movies from './movies.js';
 import upcomingMoviesModel from '../api/upcomingMovies/upcomingMoviesModel';
 import { upcomingMovies } from './upcomingMovies';
+import trendingMoviesModel from '../api/trendingMovies/trendingMoviesModel';
+import { trendingMovies } from './trendingMovies';
 
 dotenv.config();
 
@@ -68,9 +70,22 @@ export async function loadMovies() {
     }
   }
 
+  export async function loadTrendingMovies() {
+    console.log('load trending movies seed data');
+    console.log(trendingMovies.length);
+    try {
+      await trendingMoviesModel.deleteMany();
+      await trendingMoviesModel.collection.insertMany(trendingMovies);
+      console.info(`${trendingMovies.length} Trending Movies were successfully stored.`);
+    } catch (err) {
+      console.error(`failed to Load Trending Movies Data: ${err}`);
+    }
+  }
+
   if (process.env.SEED_DB) {
     loadUsers();
     loadGenres();//you may not need this line if you skipped the exercises
     loadMovies();//ADD THIS LINE
     loadUpcomingMovies();
+    loadTrendingMovies();
   }

@@ -3,6 +3,7 @@ import express from 'express';
 import moviesRouter from './api/movies';
 import genresRouter from './api/genres';
 import upcomingMoviesRouter from './api/upcomingMovies';
+import trendingMoviesRouter from './api/trendingMovies';
 import './db';
 import './seedData';
 import usersRouter from './api/users';
@@ -45,6 +46,9 @@ app.use('/api/genres', genresRouter);
 // Add passport.authenticate(..)  to middleware stack for protected routes​
 app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
 app.use('/api/upcomingMovies', passport.authenticate('jwt', {session: false}), upcomingMoviesRouter);
+app.use('/api/upcomingMovies/:id', passport.authenticate('jwt', {session: false}), upcomingMoviesRouter);
+app.use('/api/trendingMovies', passport.authenticate('jwt', {session: false}), trendingMoviesRouter);
+app.use('/api/trendingMovies/:id', passport.authenticate('jwt', {session: false}), trendingMoviesRouter);
 app.use(errHandler);
 
 app.listen(port, () => {
