@@ -2,12 +2,13 @@ import dotenv from 'dotenv';
 import express from 'express';
 import moviesRouter from './api/movies';
 import genresRouter from './api/genres';
+import upcomingMoviesRouter from './api/upcomingMovies';
 import './db';
 import './seedData';
 import usersRouter from './api/users';
 import passport from './authenticate';
 import session from 'express-session';
-import authenticate from './authenticate';
+// import authenticate from './authenticate';
 
 dotenv.config();
 
@@ -30,13 +31,7 @@ const port = process.env.PORT;
 
 app.use(express.json());
 
-app.use('/api/genres', genresRouter);
-app.use('/api/users', usersRouter);
-app.use('/api/genres', genresRouter);
-// eslint-disable-next-line no-irregular-whitespace
-// Add passport.authenticate(..)  to middleware stack for protected routes​
-app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
-app.use(errHandler);
+
 //session middleware
 app.use(session({
     secret: 'ilikecake',
@@ -44,10 +39,17 @@ app.use(session({
     saveUninitialized: true
   }));
 
+app.use('/api/users', usersRouter);
+app.use('/api/genres', genresRouter);
+// eslint-disable-next-line no-irregular-whitespace
+// Add passport.authenticate(..)  to middleware stack for protected routes​
+app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
+app.use('/api/upcomingMovies', passport.authenticate('jwt', {session: false}), upcomingMoviesRouter);
+app.use(errHandler);
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);
 });
 
 //update /api/Movie route
-app.use('/api/movies', authenticate, moviesRouter);
+//app.use('/api/movies', authenticate, moviesRouter);
