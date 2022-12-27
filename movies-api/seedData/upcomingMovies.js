@@ -1,5 +1,4 @@
 //data achieved from running movie app, console.log the movies being displayed, access dev tools, console tab and edit the data format
-//not used yet
 export const upcomingMovies = [
     {
         "adult": false,
