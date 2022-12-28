@@ -32,6 +32,7 @@ const SiteHeader = ({ history }) => {
     { label: "Top Rated", path: "/movies/toprated" },
     { label: "Actors", path: "/actors" },
     { label: "Actor Favourites", path: "/actors/favourites" },
+    //must add sign up and login here and implement private routes 
     // { label: "Similar Movies", path: "/movies/similar" }
   ];
 
