@@ -25,7 +25,6 @@ import AuthProvider from "./authContext";
 import PrivateRoute from "./privateRoute";
 import AuthHeader from "./authHeader";
 import SignUpPage from "./signUpPage";
-import MovieProvider from "./moviesContext";
 
 
 //Immediately after the import statements, declare the query client (it will manage the cache in the browser)
@@ -48,6 +47,7 @@ const App = () => {
       <MoviesContextProvider>
         <MovieActorContextProvider>
       <Routes>
+        {/* return to add private routes  */}
       <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
         <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
         <Route path="/movies/:id" element={<MoviePage />} />
