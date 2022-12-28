@@ -23,6 +23,37 @@ const reducer = (state, action) => {
 const MoviesContextProvider = props => {
   const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [], trending: []});
   const [authenticated, setAuthenticated] = useState(false);
+  const [favourites, setFavourites] = useState( [] ) 
+  const [myReviews, setMyReviews] = useState( [] )
+  const [mustWatch, setMustWatch] = useState( [] )
+
+  const addToFavourites = (movie) => {
+    let newFavourites = [...favourites];
+    if (!favourites.includes(movie.id)) {
+      newFavourites.push(movie.id);
+    }
+    setFavourites(newFavourites);
+  };
+
+  const addToMustWatch = (movie) => {
+    let newMustWatch = [...mustWatch];
+    if (!mustWatch.includes(movie.id)) {
+      newMustWatch.push(movie.id);
+    }
+    setMustWatch(newMustWatch);
+    console.log(newMustWatch)
+  };
+
+  // We will use this function in a later section
+  const removeFromFavourites = (movie) => {
+    setFavourites( favourites.filter(
+      (mId) => mId !== movie.id
+    ) )
+  };
+
+  const addReview = (movie, review) => {
+    setMyReviews( {...myReviews, [movie.id]: review } )
+  };
 
   useEffect(() => {
     getMovies().then(result => {
@@ -51,7 +82,12 @@ const MoviesContextProvider = props => {
         movies: state.movies,
         upcoming: state.upcoming,
         trending: state.trending,
-        setAuthenticated
+        setAuthenticated,
+        favourites,
+        addToFavourites,
+        removeFromFavourites,
+        addReview,
+        addToMustWatch,
       }}
     >
       {props.children}
