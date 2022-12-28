@@ -45,6 +45,15 @@ export const getTrendingMovies = () => {
   ).then(res => res.json());
 };
 
+export const getTopRatedMovies = () => {
+  return fetch(
+    `/api/topRatedMovies`,{headers: {
+     'Authorization': window.localStorage.getItem('token')
+  }
+}
+).then(res => res.json());
+};
+
 export const getGenres = () => {
     return fetch(
       `/api/genres`,{headers: {

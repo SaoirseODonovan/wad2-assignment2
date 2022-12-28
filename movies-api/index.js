@@ -4,6 +4,7 @@ import moviesRouter from './api/movies';
 import genresRouter from './api/genres';
 import upcomingMoviesRouter from './api/upcomingMovies';
 import trendingMoviesRouter from './api/trendingMovies';
+import topRatedMoviesRouter from './api/topRatedMovies';
 import './db';
 import './seedData';
 import usersRouter from './api/users';
@@ -49,6 +50,8 @@ app.use('/api/upcomingMovies', passport.authenticate('jwt', {session: false}), u
 app.use('/api/upcomingMovies/:id', passport.authenticate('jwt', {session: false}), upcomingMoviesRouter);
 app.use('/api/trendingMovies', passport.authenticate('jwt', {session: false}), trendingMoviesRouter);
 app.use('/api/trendingMovies/:id', passport.authenticate('jwt', {session: false}), trendingMoviesRouter);
+app.use('/api/topRatedMovies', passport.authenticate('jwt', {session: false}), topRatedMoviesRouter);
+app.use('/api/topRatedMovies/:id', passport.authenticate('jwt', {session: false}), topRatedMoviesRouter);
 app.use(errHandler);
 
 app.listen(port, () => {

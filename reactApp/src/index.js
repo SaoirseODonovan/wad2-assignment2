@@ -65,7 +65,7 @@ const App = () => {
         <Route path="/actors/favourites" element={<FavouriteMovieActorsPage />} />
         <Route path="/public" element={<PublicPage />} /> 
         <Route exact path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route exact path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         </Routes>
       </MovieActorContextProvider>

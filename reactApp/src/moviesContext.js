@@ -3,6 +3,7 @@ import React, { useState, createContext, useEffect, useReducer } from "react";
 import { getMovies } from "./api/movie-api";
 import { getTrendingMovies } from "./api/movie-api";
 import { getUpcomingMovies } from "./api/movie-api";
+import { getTopRatedMovies } from "./api/movie-api";
 
 export const MoviesContext = createContext(null);
 
@@ -14,6 +15,8 @@ const reducer = (state, action) => {
       return { upcoming: action.payload.result};
     case "loadTrendingMovies":
       return { trending: action.payload.result};
+    case "loadTopRatedMovies":
+      return { topRated: action.payload.result};
       default:
         return state;
       
@@ -76,12 +79,20 @@ const MoviesContextProvider = props => {
     });
   },[]);
 
+  useEffect(() => {
+    getTopRatedMovies().then(result => {
+      console.log(result);
+      dispatch({ type: "loadTopRatedMovies", payload: {result}});
+    });
+  },[]);
+
   return (
     <MoviesContext.Provider
       value={{
         movies: state.movies,
         upcoming: state.upcoming,
         trending: state.trending,
+        topRated: state.topRated,
         setAuthenticated,
         favourites,
         addToFavourites,
