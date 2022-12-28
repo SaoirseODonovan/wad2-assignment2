@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { AuthContext } from './authContext';
 import { Link } from "react-router-dom";
 
@@ -17,7 +17,7 @@ const LoginPage = props => {
   const { from } = props.location.state || { from: { pathname: "/" } };
 
   if (context.isAuthenticated === true) {
-    return <Redirect to={from} />;
+    return <Navigate to={from} />;
   }
   return (
     <>

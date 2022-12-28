@@ -3,7 +3,7 @@ import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import AddToPlaylistIcon from '../components/cardIcons/addToMustWatch'
-import {getTrendingMovies} from '../api/tmdb-api'
+import {getTrendingMovies} from '../api/movie-api'
 
 const TrendingMoviesPage = (props) => {
     const {data, error, isLoading, isError}  = useQuery('trending', getTrendingMovies)

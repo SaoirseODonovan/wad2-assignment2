@@ -33,7 +33,9 @@ const SiteHeader = ({ history }) => {
     { label: "Actors", path: "/actors" },
     { label: "Actor Favourites", path: "/actors/favourites" },
     //must add sign up and login here and implement private routes 
-    // { label: "Similar Movies", path: "/movies/similar" }
+    { label: "Login", path: "/login" },
+    { label: "Sign Up", path: "/signup" }
+
   ];
 
   const handleMenuSelect = (pageURL) => {
