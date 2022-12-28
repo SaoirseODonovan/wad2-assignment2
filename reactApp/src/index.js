@@ -78,3 +78,51 @@ const App = () => {
 
 const rootElement = createRoot( document.getElementById("root") )
 rootElement.render(<App /> );
+
+// import React from "react";
+// import ReactDOM from "react-dom";
+// import { BrowserRouter, Route, Navigate, Link, Routes } from "react-router-dom";
+// import { PublicPage, Movies, Profile, HomePage } from "./pages";
+// import LoginPage from "./loginPage";
+// import AuthProvider from "./authContext";
+// import PrivateRoute from "./privateRoute";
+// import AuthHeader from "./authHeader";
+// import SignUpPage from "./signUpPage";
+// import MovieProvider from "./moviesContext";
+
+// const App = () => {
+//   return (
+//     <BrowserRouter>
+//       <AuthProvider>
+//         <AuthHeader />
+//         <ul>
+//           <li>
+//             <Link to="/">Home</Link>
+//           </li>
+//           <li>
+//             <Link to="/public">Public</Link>
+//           </li>
+//           <li>
+//             <Link to="/movies">Movies</Link>
+//           </li>
+//           <li>
+//             <Link to="/profile">Profile</Link>
+//           </li>
+//         </ul>
+//         <MovieProvider>
+//         <Routes>
+//           <Route path="/public" component={PublicPage} />
+//           <Route exact path="/" component={HomePage} />
+//           <Route path="/login" component={LoginPage} />
+//           <Route path="/signup" component={SignUpPage} />
+//           </Routes>
+//           <PrivateRoute path="/movies" component={Movies} />
+//           <PrivateRoute path="/profile" component={Profile} />
+//           <Navigate from="*" to="/" />
+//         </MovieProvider>
+//       </AuthProvider>
+//     </BrowserRouter>
+//   );
+// };
+
+// ReactDOM.render(<App />, document.getElementById("root"));
