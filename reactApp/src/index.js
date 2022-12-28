@@ -1,8 +1,8 @@
 import React from "react";
 import {createRoot} from "react-dom/client";
 import { BrowserRouter, Route, Routes, Navigate, Link } from "react-router-dom";
-import HomePage from "./homePage";
-import MoviePage from "./movieDetailsPage";
+import HomePage from "./homePage
+import MoviePage from "./movieDetailsPage
 import FavouriteMoviesPage from "./favouriteMoviesPage"; // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader';
