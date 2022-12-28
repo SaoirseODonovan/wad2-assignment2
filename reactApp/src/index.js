@@ -63,10 +63,10 @@ const App = () => {
         <Route path="/actors/" element={<MovieActorsPage />} />
         <Route path="/actors/:id" element={<MovieActorDetailsPage />} />
         <Route path="/actors/favourites" element={<FavouriteMovieActorsPage />} />
-        <Route path="/public" component={PublicPage} />
-        <Route exact path="/" component={HomePage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/signup" component={SignUpPage} />
+        <Route path="/public" element={<PublicPage />} /> 
+        <Route exact path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
         </Routes>
       </MovieActorContextProvider>
       </MoviesContextProvider>
