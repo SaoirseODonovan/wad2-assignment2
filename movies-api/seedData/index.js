@@ -9,6 +9,8 @@ import upcomingMoviesModel from '../api/upcomingMovies/upcomingMoviesModel';
 import { upcomingMovies } from './upcomingMovies';
 import trendingMoviesModel from '../api/trendingMovies/trendingMoviesModel';
 import { trendingMovies } from './trendingMovies';
+import topRatedMoviesModel from '../api/topRatedMovies/topRatedMoviesModel';
+import { topRatedMovies } from './topRatedMovies';
 
 dotenv.config();
 
@@ -82,10 +84,23 @@ export async function loadMovies() {
     }
   }
 
+  export async function loadTopRatedMovies() {
+    console.log('load top rated movies seed data');
+    console.log(topRatedMovies.length);
+    try {
+      await topRatedMoviesModel.deleteMany();
+      await topRatedMoviesModel.collection.insertMany(topRatedMovies);
+      console.info(`${topRatedMovies.length} Top Rated Movies were successfully stored.`);
+    } catch (err) {
+      console.error(`failed to Load Top Rated Movies Data: ${err}`);
+    }
+  }
+
   if (process.env.SEED_DB) {
     loadUsers();
     loadGenres();//you may not need this line if you skipped the exercises
     loadMovies();//ADD THIS LINE
     loadUpcomingMovies();
     loadTrendingMovies();
+    loadTopRatedMovies();
   }
