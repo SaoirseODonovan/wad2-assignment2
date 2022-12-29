@@ -4,6 +4,7 @@ import { getMovies } from "./api/movie-api";
 import { getTrendingMovies } from "./api/movie-api";
 import { getUpcomingMovies } from "./api/movie-api";
 import { getTopRatedMovies } from "./api/movie-api";
+import { getPopularMovies } from "./api/movie-api";
 
 export const MoviesContext = createContext(null);
 
@@ -15,6 +16,8 @@ const reducer = (state, action) => {
       return { upcoming: action.payload.result};
     case "loadTrendingMovies":
       return { trending: action.payload.result};
+    case "loadPopularMovies":
+      return { popular: action.payload.result};
     case "loadTopRatedMovies":
       return { topRated: action.payload.result};
       default:
@@ -24,7 +27,7 @@ const reducer = (state, action) => {
 };
 
 const MoviesContextProvider = props => {
-  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [], trending: [] });
+  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [], trending: [], popular: [] });
   const [authenticated, setAuthenticated] = useState(false);
   const [favourites, setFavourites] = useState( [] ) 
   const [myReviews, setMyReviews] = useState( [] )
@@ -73,6 +76,13 @@ const MoviesContextProvider = props => {
   },[]);
 
   useEffect(() => {
+    getPopularMovies().then(result => {
+      console.log(result);
+      dispatch({ type: "loadPopularMovies", payload: {result}});
+    });
+  },[]);
+
+  useEffect(() => {
     getTrendingMovies().then(result => {
       console.log(result);
       dispatch({ type: "loadTrendingMovies", payload: {result}});
@@ -93,6 +103,7 @@ const MoviesContextProvider = props => {
         upcoming: state.upcoming,
         trending: state.trending,
         topRated: state.topRated,
+        popular: state.popular,
         setAuthenticated,
         favourites,
         addToFavourites,

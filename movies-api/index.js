@@ -55,6 +55,7 @@ app.use('/api/topRatedMovies', passport.authenticate('jwt', {session: false}), t
 app.use('/api/topRatedMovies/:id', passport.authenticate('jwt', {session: false}), topRatedMoviesRouter);
 app.use('/api/popularMovies', passport.authenticate('jwt', {session: false}), popularMoviesRouter);
 app.use('/api/popularMovies/:id', passport.authenticate('jwt', {session: false}), popularMoviesRouter);
+
 app.use(errHandler);
 
 app.listen(port, () => {
