@@ -81,7 +81,7 @@ rootElement.render(<App /> );
 
 // import React from "react";
 // import ReactDOM from "react-dom";
-// import { BrowserRouter, Route, Navigate, Link, Routes } from "react-router-dom";
+// import { BrowserRouter, Route, Redirect, Navigate, Routes, Link } from "react-router-dom";
 // import { PublicPage, Movies, Profile, HomePage } from "./pages";
 // import LoginPage from "./loginPage";
 // import AuthProvider from "./authContext";
@@ -115,10 +115,10 @@ rootElement.render(<App /> );
 //           <Route exact path="/" component={HomePage} />
 //           <Route path="/login" component={LoginPage} />
 //           <Route path="/signup" component={SignUpPage} />
-//           </Routes>
-//           <PrivateRoute path="/movies" component={Movies} />
-//           <PrivateRoute path="/profile" component={Profile} />
-//           <Navigate from="*" to="/" />
+//           <Route path="/movies" component={Movies} />
+//           <Route path="/profile" component={Profile} />
+//           {/* <Navigate from="*" to="/" /> */}
+//         </Routes>
 //         </MovieProvider>
 //       </AuthProvider>
 //     </BrowserRouter>
