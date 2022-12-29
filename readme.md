@@ -6,15 +6,13 @@ Name: Saoirse O'Donovan (20093135)
 
 [A bullet-point list of the ADDITIONAL features/endpoints you have implemented in the API **THAT WERE NOT IN THE LABS** ]. 
 
- + Feature 1 - .... a statement of its purpose/objective ..... 
+ + Feature 1 - I've added new API Routes for the pages
 
- + Feature 2 - .......
+ + Feature 2 - Attempted to add modelling support for upcoming movies, trending movies, top rated movies and popular movies
 
- + Feature 3 - ......
+ + Feature 3 - Storing upcoming movies, trending movies, top rated movies and popular movies in mongo db also
 
-   e.g.
-
- + Get Similar Movies:  Get a list of similar movies using a movie ID. 
+ + Feature 4 - GET and POST data to new movies-api
 
 ## Installation Requirements
 
@@ -29,7 +27,25 @@ git clone https://github.com/SaoirseODonovan/wad2-assignment2.git
 followed by installation
 
 ```bat
-cd movies-api
+npm install react-scripts
+npm install --save passport passport-jwt jsonwebtoken bcrypt-nodejs
+npm install --save-dev nodemon
+npm install dotenv --save
+npm install --save-dev eslint babel-eslint
+npx eslint --init
+npx eslint index.js
+npm install eslint eslint-plugin-react --save-dev
+npx eslint index.js --fix
+npm init
+npm install --save-dev babel-cli babel-preset-env nodemon eslint babel-eslint
+npm install --save dotenv express
+npm install --save uniqid
+mongod -dbpath db
+npm install -save mongoose
+npm install express-async-handler --save
+npm install --save express-session
+npm install -s node-fetch@2
+cd movies-api/
 npm install
 cd reactApp
 npm install
@@ -40,6 +56,8 @@ npm install
 Describe any configuration that needs to take place before running the API. For example, creating an ``.env`` and what variables to put in it. Give an example of how this might be structured/done.
 **REMEMBER: DON'T PUT YOUR OWN USERNAMES/PASSWORDS/AUTH KEYS IN THE README OR ON GITHUB,** just placeholders as indicated below:
 
+The .env should look something like the following and the tmdb api key:
+
 ```bat
 NODE_ENV=development
 PORT=8080
@@ -47,18 +65,25 @@ HOST=localhost
 mongoDB=mongodb://localhost:27017/movies_db
 SEED_DB=True
 SECRET=ilikecake
-```
 
+```
 
 ## API Design
 Give an overview of your web API design, perhaps similar to the following: 
+
+Not all work as intended but the following is attempted
 
 |  |  GET | POST | PUT | DELETE
 | -- | -- | -- | -- | -- 
 | /api/movies |Gets a list of movies | N/A | N/A |
 | /api/movies/{movieid} | Get a Movie | N/A | N/A | N/A
 | /api/movies/{movieid}/reviews | Get all reviews for movie | Create a new review for Movie | N/A | N/A  
-| ... | ... | ... | ... | ...
+| /api/popularMovies | Gets popular movies | N/A | N/A | N/A
+| /api/upcomingMovies | Gets upcoming movies | N/A | N/A | N/A
+| /api/trendingMovies | Gets trending movies | N/A | N/A | N/A
+| /api/topRatedMovies | Gets top rated movies | N/A | N/A | N/A
+| /api/users | Gets users | user log in | N/A | N/A
+| /api/users?action=register | N/A | registering a user | N/A | N/A
 
 If you have your API design on an online platform or graphic, please link to it (e.g. [Swaggerhub](https://app.swaggerhub.com/)).
 
@@ -76,7 +101,7 @@ All routes outlined in the index.js file of the src folder should be private asi
 
 Describe how you integrated your React app with the API. Perhaps link to the React App repo and give an example of an API call from React App:
 
-In this assignment I worked on trying to integrate the API developed in the labs with my previous assignments movies app. To do this I added the API calls that are displayed below. I created some new models and seed data as we had done in the labs with 'movies' and 'users'. The seed data is loaded and stored in mongodb. I also added new paths. This was all done to try and get the app to work by calling the new movies-api that was created instead of the tmdb-api that was previously used. 
+In this assignment I worked on trying to integrate the API developed in the labs with my previous assignments movies app. To do this I added the API calls that are displayed below. I created some new models and seed data as we had done in the labs with 'movies' and 'users'. The seed data is loaded and stored in mongodb. This was all done to try and get the app to work by calling the new movies-api that was created instead of the fetching from the tmdb-api that was previously used. 
 
 ~~~Javascript
 export const getMovies = () => {
@@ -151,6 +176,10 @@ export const getGenres = () => {
 
 . . Briefly explain any non-standard features, functional or non-functional, developed for the app.  
 
+None
+
 ## Independent learning.
 
 . . State the non-standard aspects of React/Express/Node (or other related technologies) that you researched and applied in this assignment . .  
+
+None

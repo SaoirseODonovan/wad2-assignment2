@@ -48,6 +48,7 @@ const App = () => {
         <MovieActorContextProvider>
       <Routes>
         {/* return to add private routes  */}
+        {/* most routes here aside from sign up and login should be private */}
       <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
         <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
         <Route path="/movies/:id" element={<MoviePage />} />
