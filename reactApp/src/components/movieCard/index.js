@@ -2,10 +2,10 @@ import React, { useContext  } from "react";
 import {createRoot} from "react-dom/client";
 import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
-import HomePage from "../../homePage";
-import MoviePage from "../../movieDetailsPage";
+import HomePage from "../../pages/homePage";
+import MoviePage from "../../pages/movieDetailsPage";
 import Card from "@mui/material/Card";
-import FavouriteMoviesPage from "../../favouriteMoviesPage"; // NEW
+import FavouriteMoviesPage from "../../pages/favouriteMoviesPage"; // NEW
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";

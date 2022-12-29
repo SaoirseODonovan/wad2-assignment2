@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 // import { withRouter } from "react-router-dom";
-import { AuthContext } from "./authContext";
+import { AuthContext } from "./contexts/authContext";
 
 //source: https://stackoverflow.com/questions/66465750/withrouter-is-not-exported-from-react-router-dom
 //to use withRouter funxtion as it is not compatiable with the current react-router-dom version
