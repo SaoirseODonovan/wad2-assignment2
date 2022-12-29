@@ -24,9 +24,10 @@ const UpcomingMoviesPage = (props) => {
     return <h1>{error.message}</h1>
   }  
   const movies = data.results;
+  console.log(movies)
 
-  const favourites = movies.filter((m) => m.favourite);
-  localStorage.setItem("favourites", JSON.stringify(favourites));
+  // const favourites = movies.filter((m) => m.favourite);
+  // localStorage.setItem("favourites", JSON.stringify(favourites));
 
     return(
         <PageTemplate 
