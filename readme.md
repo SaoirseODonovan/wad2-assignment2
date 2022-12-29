@@ -83,6 +83,7 @@ Not all work as intended but the following is attempted
 | /api/trendingMovies | Gets trending movies | N/A | N/A | N/A
 | /api/topRatedMovies | Gets top rated movies | N/A | N/A | N/A
 | /api/users | Gets users | user log in | N/A | N/A
+| /api/users/{userid} | Gets single user | N/A | N/A
 | /api/users?action=register | N/A | registering a user | N/A | N/A
 
 If you have your API design on an online platform or graphic, please link to it (e.g. [Swaggerhub](https://app.swaggerhub.com/)).
