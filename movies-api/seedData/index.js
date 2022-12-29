@@ -11,6 +11,8 @@ import trendingMoviesModel from '../api/trendingMovies/trendingMoviesModel';
 import { trendingMovies } from './trendingMovies';
 import topRatedMoviesModel from '../api/topRatedMovies/topRatedMoviesModel';
 import { topRatedMovies } from './topRatedMovies';
+import popularMoviesModel from '../api/popularMovies/popularMoviesModel';
+import { popularMovies } from './popularMovies';
 
 dotenv.config();
 
@@ -96,6 +98,18 @@ export async function loadMovies() {
     }
   }
 
+  export async function loadPopularMovies() {
+    console.log('load popular movies seed data');
+    console.log(popularMovies.length);
+    try {
+      await popularMoviesModel.deleteMany();
+      await popularMoviesModel.collection.insertMany(popularMovies);
+      console.info(`${popularMovies.length} Popular Movies were successfully stored.`);
+    } catch (err) {
+      console.error(`failed to Popular Movies Data: ${err}`);
+    }
+  }
+
   if (process.env.SEED_DB) {
     loadUsers();
     loadGenres();//you may not need this line if you skipped the exercises
@@ -103,4 +117,5 @@ export async function loadMovies() {
     loadUpcomingMovies();
     loadTrendingMovies();
     loadTopRatedMovies();
+    loadPopularMovies();
   }
