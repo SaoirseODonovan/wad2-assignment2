@@ -1,9 +1,9 @@
 import React from "react";
 import {createRoot} from "react-dom/client";
 import { BrowserRouter, Route, Routes, Navigate, Link } from "react-router-dom";
-import HomePage from "./homePage";
-import MoviePage from "./movieDetailsPage";
-import FavouriteMoviesPage from "./favouriteMoviesPage"; // NEW
+import HomePage from "./pages/homePage";
+import MoviePage from "./pages/movieDetailsPage";
+import FavouriteMoviesPage from "./pages/favouriteMoviesPage"; // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader';
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage.js";
@@ -20,11 +20,11 @@ import MovieActorDetailsPage from "./pages/movieActorDetailsPage";
 import FavouriteMovieActorsPage from "./pages/favouriteMovieActorsPage";
 import MovieActorContextProvider from "./contexts/movieActorContext";
 import { PublicPage } from "./pages";
-import LoginPage from "./loginPage";
-import AuthProvider from "./authContext";
+import LoginPage from "./pages/loginPage";
+import AuthProvider from "./contexts/authContext";
 import PrivateRoute from "./privateRoute";
 import AuthHeader from "./authHeader";
-import SignUpPage from "./signUpPage";
+import SignUpPage from "./pages/signUpPage";
 
 
 //Immediately after the import statements, declare the query client (it will manage the cache in the browser)

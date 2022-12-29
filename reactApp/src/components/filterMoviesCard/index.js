@@ -33,10 +33,10 @@ const formControl =
     if (isError) {
       return <h1>{error.message}</h1>;
     }
-    const genres = data.genres;
-    if (genres[0].name !== "All"){
-      genres.unshift({ id: "0", name: "All" });
-    }
+    // const genres = data.genres;
+    // if (genres[0].name !== "All"){
+    //   genres.unshift({ id: "0", name: "All" });
+    // }
   
     const handleChange = (e, type, value) => {
       e.preventDefault();
@@ -81,13 +81,13 @@ const formControl =
             value={props.genreFilter}
             onChange={handleGenreChange}
           >
-            {genres.map((genre) => {
+            {/* {genres.map((genre) => {
               return (
                 <MenuItem key={genre.id} value={genre.id}>
                   {genre.name}
                 </MenuItem>
               );
-            })}
+            })} */}
           </Select>
         </FormControl>
       </CardContent>
