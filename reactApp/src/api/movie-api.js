@@ -54,6 +54,15 @@ return fetch(
 ).then(res => res.json());
 };
 
+export const getPopularMovies = () => {
+  return fetch(
+    `/api/popularMovies`,{headers: {
+     'Authorization': window.localStorage.getItem('token')
+  }
+  }
+  ).then(res => res.json());
+  };
+
 // export const getGenres = () => {
 //   return fetch(
 //     `/api/genres`,{headers: {
